@@ -8,10 +8,6 @@
 ---------------------------------- */
 
 
-/* ---------------------------------
-   Portfolio motion refinement
----------------------------------- */
-
 @keyframes portfolioReveal {
   from {
     opacity: 0;
