@@ -7,11 +7,15 @@
    Portfolio motion refinement
 ---------------------------------- */
 
-/* Elegant entrance */
+
+/* ---------------------------------
+   Portfolio motion refinement
+---------------------------------- */
+
 @keyframes portfolioReveal {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
 
   to {
@@ -20,22 +24,59 @@
   }
 }
 
-main {
-  animation: portfolioReveal 700ms ease-out both;
+/* Animate the actual portfolio hero */
+.hero {
+  animation: portfolioReveal 900ms cubic-bezier(.2,.7,.2,1) both;
 }
 
-/* Smooth navigation */
-html {
-  scroll-behavior: smooth;
+/* Subtle project card interaction */
+.project-card {
+  transition: transform 350ms ease;
 }
 
-/* Accessibility: reduce motion if requested */
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Smooth image movement inside project artwork */
+.project-art > * {
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+
+.project-card:hover .project-art > * {
+  transform: scale(1.025);
+}
+
+/* Orange underline interaction */
+.site-header nav a {
+  position: relative;
+}
+
+.site-header nav a:not(.nav-contact)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.site-header nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  main {
+  .hero,
+  .project-card,
+  .project-art > *,
+  .site-header nav a::after {
     animation: none;
-  }
-
-  html {
-    scroll-behavior: auto;
+    transition: none;
   }
 }
+
