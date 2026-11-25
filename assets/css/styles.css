@@ -2,3 +2,40 @@
 @media(max-width:800px){.site-header{height:65px}.menu-toggle{display:flex;flex-direction:column;gap:6px;border:0;background:none;padding:10px}.menu-toggle i{width:23px;height:1px;background:var(--ink)}.site-header nav{display:none;position:absolute;top:65px;left:0;right:0;background:var(--paper);padding:22px 5.5% 28px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.site-header nav.open{display:flex}.site-header nav a{padding:13px 0;border-bottom:1px solid var(--line)}.site-header nav .nav-contact{border:0;padding:13px 0}.hero{padding-top:80px;min-height:580px}.hero h1{font-size:clamp(57px,13vw,100px)}.hero-meta{gap:12px;flex-wrap:wrap}.intro-band{padding:65px 0}.intro-grid{grid-template-columns:1fr;gap:10px}.section-heading{align-items:start;flex-direction:column}.section-note{max-width:480px}.work-section,.capabilities-section,.career-section,.endorse-section{padding-top:85px;padding-bottom:85px}.project-grid{gap:35px 16px}.project-art{height:270px}.project-wide .project-art{height:340px}.project-info{align-items:start;flex-direction:column}.about-section{padding-top:85px;padding-bottom:90px;grid-template-columns:1fr;gap:20px}.about-right{padding-top:0}.career-layout{grid-template-columns:1fr}.career-tabs{border-right:0;border-bottom:1px solid #c9cbc3;padding:12px 0;flex-direction:row;overflow:auto}.career-tab{white-space:nowrap}.career-panel{padding:28px 0}.cv-actions{margin-left:0}.endorse-empty{grid-template-columns:55px 1fr}.quote-mark{font-size:75px}.endorse-empty>.underlined-link{grid-column:2}.contact-grid{grid-template-columns:1fr;gap:45px}.contact-section{padding:85px 0}}
 @media(max-width:540px){.announcement{font-size:7px;padding:0 5.5%}.hero{min-height:540px}.hero h1{font-size:clamp(53px,14vw,76px);margin:45px 0 28px}.hero-statement{font-size:16px}.hero-meta{font-size:7px;margin-top:42px}.section-heading h2,.about-left h2{font-size:54px}.project-grid{grid-template-columns:1fr}.project-wide{grid-column:auto}.project-art,.project-wide .project-art{height:280px}.art-haier{padding:7%}.brand-stack{gap:12px;flex-wrap:wrap;justify-content:flex-end}.brand-stack b:first-child{font-size:58px}.brand-stack b:nth-child(2),.brand-stack b:nth-child(3){font-size:22px}.project-info{gap:12px}.project-info h3{font-size:19px}.capability-list>div{grid-template-columns:28px 1fr 15px;gap:10px}.capability-list h3{font-size:16px}.capability-list p{grid-column:2;font-size:10px}.capability-list b{grid-column:3;grid-row:1}.cv-actions{flex-direction:column;align-items:stretch}.modal-columns{grid-template-columns:1fr;gap:10px}.modal-columns>div{border-bottom:1px solid var(--line);padding-bottom:10px}.contact-links{flex-wrap:wrap}footer{gap:10px;flex-wrap:wrap}footer>span{font-size:7px}}
 @media print{.announcement,.site-header,.filters,.project-open,.round-link,.cv-actions,.modal-backdrop,footer{display:none!important}body{background:white}.career-section,.capabilities-section,.contact-section{background:white!important;color:#111!important}.section-wrap{width:100%}.hero{min-height:auto;padding:30px 0}.hero h1{font-size:58px}.project-grid{grid-template-columns:1fr 1fr}.project-art,.project-wide .project-art{height:180px}.about-section,.career-section,.endorse-section{padding:30px 0;break-inside:avoid}.career-layout{grid-template-columns:1fr}.career-tabs{display:none}.career-panel{padding:15px 0}.light-heading h2,.capability-list h3{color:#111}.capability-list p,.light-heading .section-note{color:#555}.capability-list{border-color:#ccc}.capability-list>div{border-color:#ccc}.contact-grid{grid-template-columns:1fr 1fr}.contact-section{padding:30px 0}}
+
+/* ---------------------------------
+   Portfolio motion refinement
+---------------------------------- */
+
+/* Elegant entrance */
+@keyframes portfolioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: portfolioReveal 700ms ease-out both;
+}
+
+/* Smooth navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility: reduce motion if requested */
+@media (prefers-reduced-motion: reduce) {
+  main {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
